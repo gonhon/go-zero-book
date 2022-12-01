@@ -1,0 +1,8 @@
+Name: search-api
+Host: 0.0.0.0
+Port: 8001
+
+Auth:
+  AccessSecret: "1234567890"
+  # 单位：秒
+  AccessExpire: 1800
