@@ -20,7 +20,8 @@ type LoginLogic struct {
 	svcCtx *svc.ServiceContext
 }
 
-/**
+/*
+*
 生成token
 */
 func (l *LoginLogic) getJwtToken(secretKey string, iat, seconds, userId int64) (string, error) {
@@ -28,7 +29,7 @@ func (l *LoginLogic) getJwtToken(secretKey string, iat, seconds, userId int64) (
 	claims["ext"] = iat + seconds
 	claims["iat"] = iat
 	claims["userId"] = userId
-	token := jwt.New(jwt.SigningMethodES256)
+	token := jwt.New(jwt.SigningMethodHS256)
 	token.Claims = claims
 	return token.SignedString([]byte(secretKey))
 
@@ -67,12 +68,13 @@ func (l *LoginLogic) Login(req *types.LoginReq) (resp *types.LoginReply, err err
 	if err != nil {
 		return nil, err
 	}
-
-	resp.Id = userInfo.Id
-	resp.Name = userInfo.Name
-	resp.Gender = userInfo.Gender
-	resp.AccessToken = token
-	resp.AccessExpire = now + accessExpire
-	resp.RefreshAfter = now + accessExpire/2
+	resp = &types.LoginReply{
+		Id:           userInfo.Id,
+		Name:         userInfo.Name,
+		Gender:       userInfo.Gender,
+		AccessToken:  token,
+		AccessExpire: now + accessExpire,
+		RefreshAfter: now + accessExpire/2,
+	}
 	return
 }

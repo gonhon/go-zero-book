@@ -3,6 +3,6 @@ Host: 0.0.0.0
 Port: 8001
 
 Auth:
-  AccessSecret: "1234567890"
+  AccessSecret: '6f5e1cc696e44a68869ff7e2b1e84103'
   # 单位：秒
   AccessExpire: 1800

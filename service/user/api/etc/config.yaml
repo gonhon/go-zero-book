@@ -3,14 +3,14 @@ Host: 0.0.0.0
 Port: 8080
 
 Mysql:
-  DataSource: root:123456@tcp(127.0.0.1)/go-zero-github.com/honsky/go-zero-book?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+  DataSource: root:123456@tcp(127.0.0.1:3306)/go-zero-book?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 
 CacheRedis:
-  - Host: 127.0.0.1
+  - Host: 127.0.0.1:6379
     Pass: '123456'
     Type: node
 
 Auth:
-  AccessSecret: "1234567890"
+  AccessSecret: '6f5e1cc696e44a68869ff7e2b1e84103'
   # 单位：秒
   AccessExpire: 1800
