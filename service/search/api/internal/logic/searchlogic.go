@@ -25,6 +25,7 @@ func NewSearchLogic(ctx context.Context, svcCtx *svc.ServiceContext) *SearchLogi
 
 func (l *SearchLogic) Search(req *types.SearchReq) (resp *types.SearchReply, err error) {
 	// todo: add your logic here and delete this line
+	logx.Info("search...")
 
 	return
 }

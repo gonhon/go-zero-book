@@ -3,12 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
+	"net/http"
 
 	"github.com/honsky/go-zero-book/service/search/api/internal/config"
 	"github.com/honsky/go-zero-book/service/search/api/internal/handler"
 	"github.com/honsky/go-zero-book/service/search/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
+	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/rest"
 )
 
@@ -22,6 +24,15 @@ func main() {
 
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
+
+	//全局拦截器
+	server.Use(func(next http.HandlerFunc) http.HandlerFunc {
+		return func(w http.ResponseWriter, r *http.Request) {
+			logx.Info("all router start ...")
+			next(w, r)
+			logx.Info("all router end ...")
+		}
+	})
 
 	ctx := svc.NewServiceContext(c)
 	handler.RegisterHandlers(server, ctx)
