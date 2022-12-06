@@ -1,4 +1,4 @@
-module github.com/honsky/go-zero-book
+module github.com/gonhon/go-zero-book
 
 go 1.18
 

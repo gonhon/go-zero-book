@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/honsky/go-zero-book/service/search/api/internal/config"
-	"github.com/honsky/go-zero-book/service/search/api/internal/handler"
-	"github.com/honsky/go-zero-book/service/search/api/internal/svc"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/config"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/handler"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/logx"

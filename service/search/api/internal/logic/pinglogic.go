@@ -3,7 +3,7 @@ package logic
 import (
 	"context"
 
-	"github.com/honsky/go-zero-book/service/search/api/internal/svc"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/svc"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 

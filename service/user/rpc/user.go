@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/honsky/go-zero-book/service/user/rpc/internal/config"
-	"github.com/honsky/go-zero-book/service/user/rpc/internal/server"
-	"github.com/honsky/go-zero-book/service/user/rpc/internal/svc"
-	"github.com/honsky/go-zero-book/service/user/rpc/types/user"
+	"github.com/gonhon/go-zero-book/service/user/rpc/internal/config"
+	"github.com/gonhon/go-zero-book/service/user/rpc/internal/server"
+	"github.com/gonhon/go-zero-book/service/user/rpc/internal/svc"
+	"github.com/gonhon/go-zero-book/service/user/rpc/types/user"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"

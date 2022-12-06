@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"github.com/honsky/go-zero-book/service/user/api/internal/logic"
-	"github.com/honsky/go-zero-book/service/user/api/internal/svc"
-	"github.com/honsky/go-zero-book/service/user/api/internal/types"
+	"github.com/gonhon/go-zero-book/service/user/api/internal/logic"
+	"github.com/gonhon/go-zero-book/service/user/api/internal/svc"
+	"github.com/gonhon/go-zero-book/service/user/api/internal/types"
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 

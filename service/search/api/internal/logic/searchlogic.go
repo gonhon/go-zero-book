@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/honsky/go-zero-book/service/search/api/internal/svc"
-	"github.com/honsky/go-zero-book/service/search/api/internal/types"
-	"github.com/honsky/go-zero-book/service/user/rpc/types/user"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/svc"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/types"
+	"github.com/gonhon/go-zero-book/service/user/rpc/types/user"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

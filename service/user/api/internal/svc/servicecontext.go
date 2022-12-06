@@ -1,8 +1,8 @@
 package svc
 
 import (
-	"github.com/honsky/go-zero-book/service/user/api/internal/config"
-	"github.com/honsky/go-zero-book/service/user/model"
+	"github.com/gonhon/go-zero-book/service/user/api/internal/config"
+	"github.com/gonhon/go-zero-book/service/user/model"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 )
 

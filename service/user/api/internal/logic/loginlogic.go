@@ -2,15 +2,15 @@ package logic
 
 import (
 	"context"
-	"errors"
 	"strings"
 	"time"
 
-	"github.com/form3tech-oss/jwt-go"
-	"github.com/honsky/go-zero-book/service/user/api/internal/svc"
-	"github.com/honsky/go-zero-book/service/user/api/internal/types"
-	"github.com/honsky/go-zero-book/service/user/model"
+	"github.com/gonhon/go-zero-book/common/errorx"
+	"github.com/gonhon/go-zero-book/service/user/api/internal/svc"
+	"github.com/gonhon/go-zero-book/service/user/api/internal/types"
+	"github.com/gonhon/go-zero-book/service/user/model"
 
+	"github.com/form3tech-oss/jwt-go"
 	"github.com/zeromicro/go-zero/core/logx"
 )
 
@@ -45,18 +45,18 @@ func NewLoginLogic(ctx context.Context, svcCtx *svc.ServiceContext) *LoginLogic 
 
 func (l *LoginLogic) Login(req *types.LoginReq) (resp *types.LoginReply, err error) {
 	if len(strings.TrimSpace(req.Username)) == 0 || len(strings.TrimSpace(req.Password)) == 0 {
-		return nil, errors.New("参数错误")
+		return nil, errorx.NewDefaultError("参数错误")
 	}
 	userInfo, err := l.svcCtx.UserModel.FindOneByNumber(l.ctx, req.Username)
 	switch err {
 	case nil:
 	case model.ErrNotFound:
-		return nil, errors.New("用户名不存在")
+		return nil, errorx.NewDefaultError("用户名不存在")
 	default:
 		return nil, err
 	}
 	if req.Password != userInfo.Password {
-		return nil, errors.New("密码错误")
+		return nil, errorx.NewDefaultError("密码错误")
 	}
 	now := time.Now().Unix()
 	accessExpire := l.svcCtx.Config.Auth.AccessExpire

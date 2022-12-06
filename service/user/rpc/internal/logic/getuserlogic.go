@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"github.com/honsky/go-zero-book/service/user/rpc/internal/svc"
-	"github.com/honsky/go-zero-book/service/user/rpc/types/user"
+	"github.com/gonhon/go-zero-book/service/user/rpc/internal/svc"
+	"github.com/gonhon/go-zero-book/service/user/rpc/types/user"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

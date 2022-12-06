@@ -3,8 +3,8 @@ package handler
 import (
 	"net/http"
 
-	"github.com/honsky/go-zero-book/service/search/api/internal/logic"
-	"github.com/honsky/go-zero-book/service/search/api/internal/svc"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/logic"
+	"github.com/gonhon/go-zero-book/service/search/api/internal/svc"
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
