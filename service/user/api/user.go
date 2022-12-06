@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/gonhon/go-zero-book/common/base"
 	"github.com/gonhon/go-zero-book/service/user/api/internal/config"
 	"github.com/gonhon/go-zero-book/service/user/api/internal/handler"
 	"github.com/gonhon/go-zero-book/service/user/api/internal/svc"
@@ -31,7 +32,7 @@ func main() {
 	// _, _ = userclient.User.GetUser(nil, nil)
 	httpx.SetErrorHandler(func(err error) (int, interface{}) {
 		switch e := err.(type) {
-		case *errorx.CodeError:
+		case *base.CodeError:
 			return http.StatusOK, e.Data()
 		default:
 			return http.StatusInternalServerError, nil

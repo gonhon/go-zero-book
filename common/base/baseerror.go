@@ -1,4 +1,4 @@
-package errorx
+package base
 
 const defaultCode = 1001
 
