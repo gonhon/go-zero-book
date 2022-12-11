@@ -14,3 +14,26 @@ type LoginReply struct {
 	AccessExpire int64  `json:"accessExpire"`
 	RefreshAfter int64  `json:"refreshAfter"`
 }
+
+type ClassReq struct {
+	Num  string `json:"num"`
+	Name string `json:"name"`
+	Code string `json:"code"`
+}
+
+type ClassPath struct {
+	Id int64 `path:"id"`
+}
+
+type FindClassReq struct {
+	Val      string `form:"val"`      // val
+	Page     int    `form:"page"`     // 页数
+	PageSize int8   `form:"pageSize"` // 页大小
+}
+
+type ClassReply struct {
+	Id   int64  `json:"id"`
+	Num  string `json:"num"`
+	Name string `json:"name"`
+	Code string `json:"code"`
+}

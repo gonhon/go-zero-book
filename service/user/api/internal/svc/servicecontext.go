@@ -7,8 +7,9 @@ import (
 )
 
 type ServiceContext struct {
-	Config    config.Config
-	UserModel model.UserModel
+	Config     config.Config
+	UserModel  model.UserModel
+	ClassModel model.ClassModel
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
@@ -17,5 +18,7 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config:    c,
 		UserModel: model.NewUserModel(conn, c.CacheRedis),
+		//不带缓存
+		ClassModel: model.NewClassModel(conn),
 	}
 }

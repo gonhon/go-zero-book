@@ -1,0 +1,46 @@
+type (
+	
+	ClassReq {
+		Num string `json:"num"`
+		Name string `json:"name"`
+		Code string `json:"code"`
+	}
+
+	ClassPath {
+		Id int64 `path:"id"`
+	}
+
+	findClassReq struct {
+        val    string `form:"val"`    // val
+        page     int    `form:"page"`     // 页数
+        pageSize int8   `form:"pageSize"` // 页大小
+    }
+
+	ClassReply {
+		Id           int64  `json:"id"`
+		Num string `json:"num"`
+		Name string `json:"name"`
+		Code string `json:"code"`
+	}
+)
+@server(
+	group:class
+	prefix:api/v1
+	jwt: Auth
+)
+service user-api {
+	@handler addClass
+	post /class/add (ClassReq) returns (bool)
+
+	@handler updateClass
+	put /class/update (ClassReq) returns (bool)
+
+	@handler deleteClass
+	delete /class/delete (ClassReq) returns (bool)
+
+	@handler findClass 
+	get /class/findClass (findClassReq) returns ([]ClassReply)
+
+	@handler getById
+	get /class/:id (ClassPath) returns (ClassReply)
+}

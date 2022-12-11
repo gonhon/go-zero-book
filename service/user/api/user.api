@@ -1,3 +1,5 @@
+import "class.api"
+
 type (
 	LoginReq {
 		Username string `json:"username"`
