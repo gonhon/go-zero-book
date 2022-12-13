@@ -16,7 +16,14 @@ type LoginReply struct {
 }
 
 type ClassReq struct {
-	Num  string `json:"num"`
+	Num  int64  `json:"num"`
+	Name string `json:"name"`
+	Code string `json:"code"`
+}
+
+type ClassUpdate struct {
+	Id   int64  `json:"id"`
+	Num  int64  `json:"num"`
 	Name string `json:"name"`
 	Code string `json:"code"`
 }
@@ -33,7 +40,7 @@ type FindClassReq struct {
 
 type ClassReply struct {
 	Id   int64  `json:"id"`
-	Num  string `json:"num"`
+	Num  int64  `json:"num"`
 	Name string `json:"name"`
 	Code string `json:"code"`
 }

@@ -3,6 +3,7 @@ package class
 import (
 	"context"
 
+	"github.com/gonhon/go-zero-book/common/base"
 	"github.com/gonhon/go-zero-book/service/user/api/internal/svc"
 	"github.com/gonhon/go-zero-book/service/user/api/internal/types"
 
@@ -23,8 +24,11 @@ func NewDeleteClassLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Delet
 	}
 }
 
-func (l *DeleteClassLogic) DeleteClass(req *types.ClassReq) (resp bool, err error) {
+func (l *DeleteClassLogic) DeleteClass(req *types.ClassPath) (bool, error) {
 	// todo: add your logic here and delete this line
-
-	return
+	err := l.svcCtx.ClassModel.Delete(l.ctx, req.Id)
+	if err != nil {
+		return false, base.NewCodeError(500, "删除失败")
+	}
+	return true, err
 }

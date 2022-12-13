@@ -1,7 +1,14 @@
 type (
 	
 	ClassReq {
-		Num string `json:"num"`
+		Num int64 `json:"num"`
+		Name string `json:"name"`
+		Code string `json:"code"`
+	}
+
+	ClassUpdate {
+		Id           int64  `json:"id"`
+		Num int64 `json:"num"`
 		Name string `json:"name"`
 		Code string `json:"code"`
 	}
@@ -18,7 +25,7 @@ type (
 
 	ClassReply {
 		Id           int64  `json:"id"`
-		Num string `json:"num"`
+		Num int64 `json:"num"`
 		Name string `json:"name"`
 		Code string `json:"code"`
 	}
@@ -36,7 +43,7 @@ service user-api {
 	put /class/update (ClassReq) returns (bool)
 
 	@handler deleteClass
-	delete /class/delete (ClassReq) returns (bool)
+	delete /class/delete/:id  (ClassPath) returns (bool)
 
 	@handler findClass 
 	get /class/findClass (findClassReq) returns ([]ClassReply)

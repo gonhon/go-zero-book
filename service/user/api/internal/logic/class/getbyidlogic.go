@@ -35,7 +35,7 @@ func (l *GetByIdLogic) GetById(req *types.ClassPath) (resp *types.ClassReply, er
 		Id:   class.Id,
 		Name: class.Name,
 		Code: class.Code,
-		// Num:  class.Num,
+		Num:  class.Num,
 	}
 	return
 }
