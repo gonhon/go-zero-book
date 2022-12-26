@@ -29,6 +29,7 @@ type (
 		FindOneByCode(ctx context.Context, code string) (*Class, error)
 		Update(ctx context.Context, data *Class) error
 		Delete(ctx context.Context, id int64) error
+		FindList(ctx context.Context,  param *Class) ([]Class, error)
 	}
 
 	defaultClassModel struct {
@@ -97,6 +98,21 @@ func (m *defaultClassModel) Update(ctx context.Context, newData *Class) error {
 	query := fmt.Sprintf("update %s set %s where `id` = ?", m.table, classRowsWithPlaceHolder)
 	_, err := m.conn.ExecCtx(ctx, query, newData.Num, newData.Name, newData.Code, newData.Id)
 	return err
+}
+
+
+func (m *defaultClassModel) FindList(ctx context.Context, param *Class) ([]Class, error) {
+	query := fmt.Sprintf("select %s from %s where `name` like ? limit 1", classRows, m.table)
+	var resp =make([]Class,10)
+	err := m.conn.QueryRowCtx(ctx, &resp, query,fmt.Sprintf("`%%%s%%`",param.Name))
+	switch err {
+	case nil:
+		return resp, nil
+	case sqlc.ErrNotFound:
+		return nil, ErrNotFound
+	default:
+		return nil, err
+	} 
 }
 
 func (m *defaultClassModel) tableName() string {
